@@ -170,11 +170,6 @@ func (d *Dialer) DialContext(ctx context.Context, urlStr string, requestHeader h
 		return nil, nil, errMalformedURL
 	}
 
-	if u.User != nil {
-		// User name and password are not allowed in websocket URIs.
-		return nil, nil, errMalformedURL
-	}
-
 	req := &http.Request{
 		Method:     "GET",
 		URL:        u,
